@@ -2,6 +2,7 @@ import { Bed, Heart, MapPin } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toggleFavorite } from "../store/favoriteSlice";
+import {setSelectedProperty} from "../store/selectedPropertySlice"
 
 const PropertyCard = ({ property }) => {
 
@@ -11,6 +12,10 @@ const PropertyCard = ({ property }) => {
 
   const handleToggleFavorite=(propertyId)=>{
     dispatch(toggleFavorite(propertyId))
+  }
+
+  const handleSelectedProperty=(property)=>{
+    dispatch(setSelectedProperty(property))
   }
 
   return (
@@ -23,7 +28,7 @@ const PropertyCard = ({ property }) => {
         />
         <button
           onClick={() => handleToggleFavorite(property.id)}
-          className={`absolute top-2 right-2 p-2 rounded-full ${
+          className={`absolute top-2 right-2 p-2 rounded-full cursor-pointer ${
             favorites.includes(property.id)
               ? "bg-teal-500 text-white"
               : "bg-white text-gray-600"
@@ -52,8 +57,9 @@ const PropertyCard = ({ property }) => {
         </div>
         <button
           onClick={() => {
-            setSelectedProperty(property);
+            handleSelectedProperty(property);
             navigate(`/property/${property.id}`);
+            window.scrollTo(0,0)
           }}
           className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition-colors cursor-pointer"
         >
@@ -64,4 +70,4 @@ const PropertyCard = ({ property }) => {
   );
 };
 
-export default PropertyCard;
+export default PropertyCard

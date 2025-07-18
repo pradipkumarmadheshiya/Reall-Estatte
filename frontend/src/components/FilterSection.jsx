@@ -16,7 +16,7 @@ const FilterSection = ({ showFilters, setShowFilters }) => {
       <div className="container mx-auto px-4 mb-4">
         <button
           onClick={() => setShowFilters(!showFilters)}
-          className="md:hidden bg-teal-600 text-white px-4 py-2 rounded-md flex items-center"
+          className="md:hidden bg-teal-600 text-white px-4 py-2 rounded-md flex items-center cursor-pointer"
         >
           <Filter size={20} className="mr-2" />
           Filters

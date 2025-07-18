@@ -26,7 +26,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to={"/favorites"}
-              className={({isActive}) => `px-3 py-2 text-sm rounded-md font-medium transition-colors flex items-center ${
+              className={({isActive}) => `relative px-3 py-2 text-sm rounded-md font-medium transition-colors flex items-center ${
                  isActive
                   ? "bg-teal-100 text-teal-700"
                   : "text-gray-700 hover:text-teal-600"
@@ -35,7 +35,7 @@ const Navbar = () => {
               <Heart size={16} className="mr-1" />
               Favorites
               {favorites.length > 0 && (
-                <span className="ml-1 bg-teal-500 text-white text-xs rounded-full px-2 py-1">
+                <span className="ml-1 bg-teal-500 text-white text-xs rounded-full px-2 py-1 absolute top-0 -right-2">
                   {favorites.length}
                 </span>
               )}
