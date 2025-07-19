@@ -8,19 +8,15 @@ const FavoritesPage = () => {
 
   const favorites=useSelector((state)=>state.favorite.favorites)
   const navigate=useNavigate()
+  
   const favoriteProperties = properties.filter((property) =>
     favorites.includes(property.id)
   );
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold">My Favorites</h1>
-        <span className="text-gray-600">
-          ({favoriteProperties.length} properties)
-        </span>
-      </div>
-
+      <h1 className="text-3xl font-bold mb-8">My Favorites ({favoriteProperties.length})</h1>
+        
       {favoriteProperties.length === 0 ? (
         <div className="text-center py-12">
           <Heart size={64} className="mx-auto mb-4 text-gray-400" />

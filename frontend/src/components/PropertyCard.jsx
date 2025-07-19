@@ -2,7 +2,6 @@ import { Bed, Heart, MapPin } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toggleFavorite } from "../store/favoriteSlice";
-import {setSelectedProperty} from "../store/selectedPropertySlice"
 
 const PropertyCard = ({ property }) => {
 
@@ -12,10 +11,6 @@ const PropertyCard = ({ property }) => {
 
   const handleToggleFavorite=(propertyId)=>{
     dispatch(toggleFavorite(propertyId))
-  }
-
-  const handleSelectedProperty=(property)=>{
-    dispatch(setSelectedProperty(property))
   }
 
   return (
@@ -57,7 +52,6 @@ const PropertyCard = ({ property }) => {
         </div>
         <button
           onClick={() => {
-            handleSelectedProperty(property);
             navigate(`/property/${property.id}`);
             window.scrollTo(0,0)
           }}

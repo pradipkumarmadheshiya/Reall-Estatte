@@ -1,22 +1,26 @@
 import { Bed, Calendar, ChevronLeft, Heart, MapPin, Phone, Square } from "lucide-react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ImageCarousel from "../components/ImageCarousel"
 import EnquiryForm from "../components/EnquiryForm"
 import { toggleFavorite } from "../store/favoriteSlice";
+import {properties} from "../constants/index"
 
 const PropertyDetails = () => {
 
+  const {id}=useParams()
   const favorites=useSelector((state)=>state.favorite.favorites)
   const [showEnquiry, setShowEnquiry] = useState(false);
-  const selectedProperty=useSelector((state)=>state.selectedProperty.selectedProperty)
+  
   const navigate=useNavigate()
   const dispatch=useDispatch()
 
   const handleToggleFavorite=(propertyId)=>{
     dispatch(toggleFavorite(propertyId))
   }
+
+  const selectedProperty=properties.find((propertiy)=>id==propertiy.id)
   
   if (!selectedProperty) return null;
 
