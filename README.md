@@ -17,6 +17,12 @@ This is a **responsive Real Estate Property Listing User Interface** built with 
 ✅ Navbar for easy navigation  
 ✅ Image carousel for property images
 
+## Install dependencies
+npm install
+
+## Run the development server
+npm run dev
+
 ---
 
 🛠️ Built With
